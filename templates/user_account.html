@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='account.css') }}">
+     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='login.css') }}">
+     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+    <title>Title</title>
+</head>
+<body>
+<div class="topnav">
+  <a class="active" href>
+  <a class="active" href="/logout">logout</a></a>
+    <a class="active" href="/flood">Flood Detection</a></a>
+</div>
+
+    <center>{% with messages = get_flashed_messages() %}
+   {% if messages %}
+     <ul class="flashes">
+        {% for message in messages %}
+         <div class="message_flash">{{ message }}</div>
+        {% endfor %}
+    </ul>
+  {% endif %}
+ {% endwith %}</center>
+
+    <div class="container">
+        <br>
+        <br>
+        <center>
+        <form action = "/predict" method = "post" enctype="multipart/form-data">
+
+            <label for="psw"><b></b></label> day  <input type="text" placeholder="" name="day" ><br>
+            <label for="psw"><b></b></label> visibilityHigh    <input type="text" placeholder="" name="visibilityHigh" ><br>
+            <label for="psw"><b></b></label> visibilityAvg  <input type="text" placeholder="" name="visibilityAvg" ><br>
+            <label for="psw"><b></b></label> month   <input type="text" placeholder="" name="month" ><br>
+            <label for="psw"><b></b></label> tempHigh   <input type="text" placeholder="" name="tempHigh" ><br>
+            <label for="psw"><b></b></label> tempAvg   <input type="text" placeholder="" name="tempAvg" ><br>
+            <label for="psw"><b></b></label> visibilityLow   <input type="text" placeholder="" name="visibilityLow" ><br>
+            <label for="psw"><b></b></label> tempLow   <input type="text" placeholder="" name="tempLow" ><br>
+            <label for="psw"><b></b></label> windAvg   <input type="text" placeholder="" name="windAvg" ><br>
+            <label for="psw"><b></b></label> DPLow   <input type="text" placeholder="" name="DPLow" ><br>
+            <label for="psw"><b></b></label> DPHigh   <input type="text" placeholder="" name="DPHigh" ><br>
+            <label for="psw"><b></b></label> DPAvg   <input type="text" placeholder="" name="DPAvg" ><br>
+            <label for="psw"><b></b></label> humidityHigh   <input type="text" placeholder="" name="humidityHigh" ><br>
+            <label for="psw"><b></b></label> SLPHigh   <input type="text" placeholder="" name="SLPHigh" ><br>
+            <label for="psw"><b></b></label> SLPLow   <input type="text" placeholder="" name="SLPLow" ><br>
+            <label for="psw"><b></b></label> SLPAvg   <input type="text" placeholder="" name="SLPAvg" ><br>
+            <label for="psw"><b></b></label> humidityAvg   <input type="text" placeholder="" name="humidityAvg" ><br>
+            <label for="psw"><b></b></label> humidityLow   <input type="text" placeholder="" name="humidityLow" ><br>
+
+            <br>
+            <br>
+            <button type="submit">Predict</button>
+        </form></center>
+
+    </div>
+
+
+</body>
+</html>
